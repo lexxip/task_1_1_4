@@ -6,13 +6,19 @@ import java.sql.SQLException;
 
 public class Util {
 
+    private static final String URL = "jdbc:mysql://localhost:3306/task_1_1_4";
+    private static final String USER = "root";
+    private static final String PASSWORD = "root";
+
+
     private Util() {}
 
-    public static Connection getConnection(String url, String user, String password) {
+    public static Connection getConnection() {
+
         Connection connection = null;
 
         try {
-            connection = DriverManager.getConnection(url, user, password);
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("Не удалось установить соединение с базой данных");
